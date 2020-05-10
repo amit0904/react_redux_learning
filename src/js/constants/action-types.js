@@ -2,3 +2,4 @@
 export const CANCEL_BOOKING = 'CANCELBOOKING';
 export const SEARCH_BOOKING = 'SEARCHBOOKING';
 export const NEW_BOOKING = 'NEWBOOKING';
+
