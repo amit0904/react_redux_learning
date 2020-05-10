@@ -1,5 +1,7 @@
-const NEW_BOOKING = 'NEWBOOKING'
-const CANCEL_BOOKING = 'CANCELBOOKING'
+import {NEW_BOOKING} from '../actions/actions'
+import {CANCEL_BOOKING} from '../actions/actions'
+import {SEARCH_BOOKING} from '../actions/actions'
+
 const initialState = {
             bookings: [
                 //   {
@@ -22,9 +24,7 @@ function rootReducer(state = initialState,action){
             );
 
         case CANCEL_BOOKING :
-            console.log("Action.payload.id " + action.payload)
-            console.log(state.bookings)
-            debugger
+
             return (
                 {...state, bookings : state.bookings.filter((item, index) => (item.id.toString() !== action.payload.id) )} 
             );
