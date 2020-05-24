@@ -1,6 +1,7 @@
 import React from 'react'
 import  {useDispatch} from 'react-redux'
 import './Table.css'
+import { removeBooking } from '../../actions/actions'
 
 export default function TableBody(props){
     
@@ -9,13 +10,7 @@ export default function TableBody(props){
     function handleClick(e) {
            const {id} = e.target
         return(
-            dispatch(
-                {
-                type : 'CANCELBOOKING', 
-                payload : { 
-                    id : id
-                }
-            }
+            dispatch(removeBooking(id)
             )
         )
     }

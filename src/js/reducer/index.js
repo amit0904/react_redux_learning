@@ -1,6 +1,4 @@
-import {NEW_BOOKING} from '../actions/actions'
-import {CANCEL_BOOKING} from '../actions/actions'
-import {SEARCH_BOOKING} from '../actions/actions'
+import {NEW_BOOKING , CANCEL_BOOKING, SEARCH_BOOKING} from '../constants/action-types'
 
 const initialState = {
             bookings: [
@@ -28,13 +26,13 @@ function rootReducer(state = initialState,action){
             return (
                 {...state, bookings : state.bookings.filter((item, index) => (item.id.toString() !== action.payload.id) )} 
             );
+        case SEARCH_BOOKING :
+
+            return (
+                {...state, bookings : state.bookings.filter((item, index) => (item.id.toString() == action.payload.id) )} 
+            );
         default : return (state)
     }
-    
-    
-
-
-
 }
 
 export default rootReducer

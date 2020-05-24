@@ -1,10 +1,8 @@
-import React from 'react'
-import {NEW_BOOKING} from '../actions/actions'
-import {CANCEL_BOOKING} from '../actions/actions'
-import {SEARCH_BOOKING} from '../actions/actions'
+import React, {useState} from 'react'
+import {NEW_BOOKING,CANCEL_BOOKING,SEARCH_BOOKING} from '../constants/action-types'
 
-function NEW_BOOKING(id,name,trainNumber,travelDate){
 
+export function addBooking (id,name,trainNumber,travelDate){
     return (
         {
         type : NEW_BOOKING,
@@ -16,5 +14,26 @@ function NEW_BOOKING(id,name,trainNumber,travelDate){
         }
         }
     )
+}
 
+export function removeBooking(id){
+    return(
+        {
+            type : CANCEL_BOOKING,
+            payload : {
+                id : id
+        }
+        }
+    )
+}
+
+export function searchBooking(id){
+    return(
+        {
+            type : SEARCH_BOOKING,
+            payload : {
+                id : id
+        }
+        }
+    )
 }

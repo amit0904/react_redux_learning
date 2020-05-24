@@ -7,7 +7,8 @@ function App(){
  
   return(
   
-    <div style={{margin : '100px'}} >
+    // <div style={{margin : '100px'}} >
+    <div>
       <NewBookingEntry/>
       <CurrentBookings/>
     </div>

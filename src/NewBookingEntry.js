@@ -1,5 +1,7 @@
 import React, {useState} from 'react'
 import {useDispatch} from 'react-redux'
+import {addBooking} from './js/actions/actions'
+import './App.css'
 
 function NewBookingEntry(){
 
@@ -20,13 +22,7 @@ function NewBookingEntry(){
         setCounter(counter + 1)
         return (
             dispatch(
-                {
-                    type: 'NEWBOOKING', 
-                    payload : {id : counter,
-                               name :fullName, 
-                               trainNumber : trainNumber, 
-                               travelDate : travelDate}
-                }
+                addBooking(counter,fullName,trainNumber,travelDate)
             )
         )
 
@@ -46,20 +42,24 @@ function NewBookingEntry(){
     }
 
     return( 
-        <form>
-            <label>Full Name</label>
-            <br/>
-            <input name='fullName' type='text' value={fullName} onChange={handleChange}/>
-            <br/>
-            <label>Train Number</label>
-            <br/>
-            <input name='trainNumber' type='text' value={trainNumber} onChange={handleChange}/>
-            <br/>
-            <label>Travel Date</label>
-            <br/>
-            <input name='travelDate' type='date' value={travelDate} onChange={handleChange}/>
-            <br/>
-            <button type='button' onClick={handleSubmit} >submit</button>
+        <form>  
+            <div className='flexContainer'> 
+                <section className='flexItem'>
+                    <label>Full Name</label>
+                    <input name='fullName' type='text' value={fullName} onChange={handleChange} />   
+                </section>
+                <section className='flexItem'>
+                    <label>Train Number</label>
+                    <input name='trainNumber' type='text' value={trainNumber} onChange={handleChange}/>
+                </section>
+                <section className='flexItem'>
+                    <label>Travel Date</label>
+                    <input name='travelDate' type='date' value={travelDate} onChange={handleChange}/>
+                </section>
+                <section className='submitContainer'>
+                    <button type='button' onClick={handleSubmit}>submit</button>
+                </section>
+            </div>
       </form>
   
     )
